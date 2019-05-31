@@ -1,0 +1,23 @@
+{
+  "name": "alarm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch src/styles/scss -o src/styles/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazaherm/alarm.git"
+  },
+  "author": "Mazaher Muraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mazaherm/alarm/issues"
+  },
+  "homepage": "https://github.com/mazaherm/alarm#readme",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
