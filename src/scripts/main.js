@@ -1,8 +1,8 @@
 // DIGITAL CLOCK
+const clockElement = document.getElementById('digitalClock')
 const timeFormat = document.getElementById('timeFormat')
 
-let digitalClock = () => {
-  const clockElement = document.getElementById('digitalClock')
+const digitalClock = () => {
   let date = new Date(),
       hour = date.getHours(),
       mins = date.getMinutes(),
@@ -20,9 +20,13 @@ let digitalClock = () => {
     digitalClock(), 1000
   })
 
-  if (timeFormat.innerHTML === '24 hr') {
+  setFormat(hour, mins, secs)
+}
+
+let setFormat = (hour, mins, secs) => {
+  if (timeFormat.innerHTML === '12 hr') {
     clockElement.innerText = hour + ':' + mins + ':' + secs
-  } else if (timeFormat.innerHTML === '12 hr') {
+  } else if (timeFormat.innerHTML === '24 hr') {
     let midday = (hour >= 12) ? "PM" : "AM"
     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour)
     clockElement.innerText = hour + ':' + mins + ':' + secs + ' ' + midday
