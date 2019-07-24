@@ -2,6 +2,8 @@
 const clockElement = document.getElementById('digitalClock')
 const timeFormat = document.getElementById('timeFormat')
 
+// Display digital clock
+
 const digitalClock = () => {
   let date = new Date(),
       hour = date.getHours(),
@@ -23,6 +25,8 @@ const digitalClock = () => {
   setFormat(hour, mins, secs)
 }
 
+// Set time format
+
 let setFormat = (hour, mins, secs) => {
   if (timeFormat.innerHTML === '12 hr') {
     clockElement.innerText = hour + ':' + mins + ':' + secs
@@ -32,6 +36,8 @@ let setFormat = (hour, mins, secs) => {
     clockElement.innerText = hour + ':' + mins + ':' + secs + ' ' + midday
   }
 }
+
+// Button to toggle between time format
 
 let toggleButtonText = () => {
   timeFormat.addEventListener('click', () => {
