@@ -52,20 +52,20 @@ toggleButtonText = () => {
 // Create drop downs for setting alarm
 createDropDown = () => {
   // loops hours
-  for (let i = 0; i <= 23; i++){
+  for (let i = 0; i <= 23; i++) {
     let number = parseInt(i)
     number = updateTime(number)
-  	let child = document.createElement("OPTION")
+    let child = document.createElement("OPTION")
     let childValue = document.createTextNode(number)
-  	child.appendChild(childValue)
+    child.appendChild(childValue)
     createHours.appendChild(child)
   }
   // loops mins
   for (let i = 0; i <= 59; i++) {
     let number = parseInt(i)
     number = updateTime(number)
-  	let child = document.createElement("OPTION");
-  	let childValue = document.createTextNode(number)
+    let child = document.createElement("OPTION");
+    let childValue = document.createTextNode(number)
     child.appendChild(childValue)
     createMins.appendChild(child)
   }
