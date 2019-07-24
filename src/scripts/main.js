@@ -1,6 +1,8 @@
 // DIGITAL CLOCK
 const clockElement = document.getElementById('digitalClock')
 const timeFormat = document.getElementById('timeFormat')
+const createHours = document.getElementById('hour')
+const createMins = document.getElementById('mins')
 
 // Display digital clock
 
@@ -22,12 +24,10 @@ const digitalClock = () => {
 }
 
 // update time so that numbers are always double digits
-let updateTime = k => {
-  return k < 10 ? '0' + k : k
-}
+updateTime = k => k < 10 ? '0' + k : k
 
 // Set time format
-let setFormat = (hour, mins, secs) => {
+setFormat = (hour, mins, secs) => {
   if (timeFormat.innerHTML === '12 hr') {
     clockElement.innerText = hour + ':' + mins + ':' + secs
   } else if (timeFormat.innerHTML === '24 hr') {
@@ -38,7 +38,7 @@ let setFormat = (hour, mins, secs) => {
 }
 
 // Button to toggle between time format
-let toggleButtonText = () => {
+toggleButtonText = () => {
   timeFormat.addEventListener('click', () => {
     let initialText = '24 hr'
     if (timeFormat.innerHTML === initialText) {
@@ -50,10 +50,7 @@ let toggleButtonText = () => {
 }
 
 // Create drop downs for setting alarm
-const createDropDown = () => {
-	let createHours = document.getElementById('hour')
-  let createMins = document.getElementById('mins')
-
+createDropDown = () => {
   // loops hours
   for (let i = 0; i <= 23; i++){
     let number = parseInt(i)
