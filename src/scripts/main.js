@@ -50,9 +50,31 @@ let toggleButtonText = () => {
   })
 }
 
+// Create drop downs for setting alarm
+
+const createDropDown = () => {
+	let createHours = document.getElementById('hour')
+  let createMins = document.getElementById('mins')
+  // loops hours
+  for (let i = 0; i <= 12; i++){
+  	let child = document.createElement("OPTION")
+  	let childValue = document.createTextNode(i)
+  	child.appendChild(childValue)
+    createHours.appendChild(child)
+  }
+  // loops mins
+  for (let i = 0; i <= 59; i++) {
+  	let child = document.createElement("OPTION");
+  	let childValue = document.createTextNode(i)
+    child.appendChild(childValue)
+    createMins.appendChild(child)
+  }
+}
+
 /**
  * Call Functions Here
  */
 
 digitalClock()
 toggleButtonText()
+createDropDown()
