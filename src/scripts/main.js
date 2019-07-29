@@ -1,8 +1,11 @@
 // DIGITAL CLOCK
 const clockElement = document.getElementById('digitalClock')
 const timeFormat = document.getElementById('timeFormat')
-const createHours = document.getElementById('hour')
-const createMins = document.getElementById('mins')
+const createHours = document.getElementById('acHour')
+const createMins = document.getElementById('acMins')
+
+let alarmTime = null
+let currentTime = null
 
 // Display digital clock
 
@@ -16,15 +19,30 @@ const digitalClock = () => {
   mins = updateTime(mins)
   secs = updateTime(secs)
 
-  setTimeout(() => {
-    digitalClock(), 1000
-  })
-
   setFormat(hour, mins, secs)
+
+  currentTime = hour + ':' + mins + ':' + secs
 }
 
-// update time so that numbers are always double digits
+// Update time every second
+setInterval(() => {
+  digitalClock(), 1000
+})
+
+// Update time so that numbers are always double digits
 updateTime = k => k < 10 ? '0' + k : k
+
+setAlarmTime = () => {
+  let acHour = document.getElementById('acHour')
+  let acMins = document.getElementById('acMins')
+  const setAlarmBtn = document.getElementById('setAlarm')
+
+  setAlarmBtn.addEventListener('click', () => {
+    alarmTime = acHour.value + ':' + acMins.value + ':00'
+    console.log(alarmTime)
+    console.log(currentTime)
+  })
+}
 
 // Set time format
 setFormat = (hour, mins, secs) => {
@@ -78,3 +96,4 @@ createDropDown = () => {
 digitalClock()
 toggleButtonText()
 createDropDown()
+setAlarmTime()
