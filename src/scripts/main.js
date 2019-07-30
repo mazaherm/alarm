@@ -71,41 +71,32 @@ setFormat = (hour, mins, secs) => {
   }
 }
 
-// Button to toggle between time format
 toggleButtonText = () => {
   timeFormat.addEventListener('click', () => {
     let initialText = '24 hr'
-    if (timeFormat.innerHTML === initialText) {
-      timeFormat.innerHTML = '12 hr'
-    } else if (timeFormat.innerHTML !== initialText) {
-      timeFormat.innerHTML = initialText
-    }
+    timeFormat.innerHTML === initialText ? timeFormat.innerHTML = '12 hr' : timeFormat.innerHTML = initialText
   })
 }
 
 // Create drop downs for setting alarm
-createDropDown = () => {
-  const createHours = document.getElementById('acHour')
-  const createMins = document.getElementById('acMins')
-  // loops hours
-  for (let i = 0; i <= 23; i++) {
-    let number = parseInt(i)
-    number = updateTime(number)
-    let child = document.createElement("OPTION")
-    let childValue = document.createTextNode(number)
-    child.appendChild(childValue)
-    createHours.appendChild(child)
-  }
-  // loops mins
-  for (let i = 0; i <= 59; i++) {
+const createHours = document.getElementById('acHour')
+const createMins = document.getElementById('acMins')
+createSelect = (initial, final, time) => {
+  for (let i = initial; i <= final; i++) {
     let number = parseInt(i)
     number = updateTime(number)
     let child = document.createElement("OPTION");
     let childValue = document.createTextNode(number)
     child.appendChild(childValue)
-    createMins.appendChild(child)
+    time.appendChild(child)
+    time.appendChild(child)
   }
 }
+
+// Creates hours selector
+createSelect(0, 23, createHours)
+// Creates mins selector
+createSelect(0, 59, createMins)
 
 /**
  * Call Functions Here
@@ -113,6 +104,5 @@ createDropDown = () => {
 
 digitalClock()
 toggleButtonText()
-createDropDown()
 setAlarmTime()
 dismissAlarm()
