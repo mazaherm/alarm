@@ -21,8 +21,8 @@ const digitalClock = () => {
 
   currentTime = hour + ':' + mins + ':' + secs
   
-  // Play alarm
-  const alarmSound = document.getElementById('alarmSound')
+// Play alarm
+const alarmSound = document.getElementById('alarmSound')
   if (alarmTime === currentTime) {
     alarmSound.loop = true
     alarmSound.play()
@@ -45,7 +45,18 @@ setAlarmTime = () => {
 
   setAlarmBtn.addEventListener('click', () => {
     alarmTime = acHour.value + ':' + acMins.value + ':00'
-    console.log('Alarm will play at ' + alarmTime)
+  })
+}
+
+// Dismiss alarm
+dismissAlarm = () => {
+  const dismissAlarmBtn = document.getElementById('dismissAlarm')
+  dismissAlarmBtn.addEventListener('click', () => {
+    if (!alarmSound.paused) {
+      alarmSound.pause()
+      alarmSound.currentTime = 0
+      alarmTime = null
+    }
   })
 }
 
@@ -104,3 +115,4 @@ digitalClock()
 toggleButtonText()
 createDropDown()
 setAlarmTime()
+dismissAlarm()
