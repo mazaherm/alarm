@@ -1,8 +1,6 @@
 // DIGITAL CLOCK
 const clockElement = document.getElementById('digitalClock')
 const timeFormat = document.getElementById('timeFormat')
-const createHours = document.getElementById('acHour')
-const createMins = document.getElementById('acMins')
 
 let alarmTime = null
 let currentTime = null
@@ -22,6 +20,13 @@ const digitalClock = () => {
   setFormat(hour, mins, secs)
 
   currentTime = hour + ':' + mins + ':' + secs
+  
+  // Play alarm
+  const alarmSound = document.getElementById('alarmSound')
+  if (alarmTime === currentTime) {
+    alarmSound.loop = true
+    alarmSound.play()
+  }
 }
 
 // Update time every second
@@ -32,6 +37,7 @@ setInterval(() => {
 // Update time so that numbers are always double digits
 updateTime = k => k < 10 ? '0' + k : k
 
+// Set alarm time
 setAlarmTime = () => {
   let acHour = document.getElementById('acHour')
   let acMins = document.getElementById('acMins')
@@ -39,8 +45,7 @@ setAlarmTime = () => {
 
   setAlarmBtn.addEventListener('click', () => {
     alarmTime = acHour.value + ':' + acMins.value + ':00'
-    console.log(alarmTime)
-    console.log(currentTime)
+    console.log('Alarm will play at ' + alarmTime)
   })
 }
 
@@ -69,6 +74,8 @@ toggleButtonText = () => {
 
 // Create drop downs for setting alarm
 createDropDown = () => {
+  const createHours = document.getElementById('acHour')
+  const createMins = document.getElementById('acMins')
   // loops hours
   for (let i = 0; i <= 23; i++) {
     let number = parseInt(i)
