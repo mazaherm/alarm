@@ -10,6 +10,15 @@
   <body>
     <div id='digitalClock'></div>
     <button id='timeFormat'>12 hr</button>
+    <div class='alarmSetter'>
+      <select id='acHour'></select>
+      <select id='acMins'></select>
+      <button id='setAlarm'>Set</button>
+    </div>
+    <audio id="alarmSound">
+        <source src='./assets/bell.mp3' type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     <script src='./scripts/main.js'></script>
   </body>
 </html>
