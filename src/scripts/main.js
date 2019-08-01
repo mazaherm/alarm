@@ -26,6 +26,7 @@ const alarmSound = document.getElementById('alarmSound')
   if (alarmTime === currentTime) {
     alarmSound.loop = true
     alarmSound.play()
+    dismissAlarmBtn.style.display = 'block'
   }
 }
 
@@ -49,13 +50,14 @@ setAlarmTime = () => {
 }
 
 // Dismiss alarm
+const dismissAlarmBtn = document.getElementById('dismissAlarm')
 dismissAlarm = () => {
-  const dismissAlarmBtn = document.getElementById('dismissAlarm')
   dismissAlarmBtn.addEventListener('click', () => {
     if (!alarmSound.paused) {
       alarmSound.pause()
       alarmSound.currentTime = 0
       alarmTime = null
+      dismissAlarmBtn.style.display = 'none'
     }
   })
 }
