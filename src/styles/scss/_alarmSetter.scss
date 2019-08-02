@@ -1,0 +1,28 @@
+.alarmSetter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#acHour,
+#acMins,
+#setAlarm {
+  height: 50px;
+  margin: 0 2px;
+  font-size: 24px;
+}
+
+#setAlarm {
+  border-radius: 20px;
+  font-size: 18px;
+  background-color: #70a1ff;
+  font-weight: 500;
+  color: #ffffff;
+  border: none
+}
+
+select {
+  border: 6px solid transparent;
+  background-color: #dfe4ea;
+}

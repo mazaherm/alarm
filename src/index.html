@@ -8,20 +8,28 @@
   <link rel='stylesheet' href='./styles/css/main.css' />
 </head>
   <body>
-    <div id='digitalClock'></div>
-    <button id='timeFormat'>12 hr</button>
-    <div class='alarmSetter'>
-      <select id='acHour'></select>
-      <select id='acMins'></select>
-      <button id='setAlarm'>Set</button>
-    </div>
-    <div>
-      <button id='dismissAlarm' class='dismissAlarm-no-display'>Dismiss</button>
-    </div>
+    <header class='title'>
+      <h1>Alarm Clock</h1>
+    </header>
+    <main class='main-body'>
+      <div class='clock'>
+        <div id='digitalClock'></div>
+        <div class='alarmSetter'>
+          <select id='acHour'></select>
+          <select id='acMins'></select>
+          <button id='setAlarm'>Set</button>
+        </div>
+      </div>
+      <div class='buttons'>
+        <button id='timeFormat'>12 hr</button>
+        <button id='dismissAlarm' class='dismissAlarm-no-display'>Dismiss</button>
+      </div>
+    </main>
+
     <audio id="alarmSound">
-        <source src='./assets/bell.mp3' type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <source src='./assets/bell.mp3' type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
     <script src='./scripts/main.js'></script>
   </body>
 </html>

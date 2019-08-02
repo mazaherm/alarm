@@ -46,6 +46,8 @@ setAlarmTime = () => {
 
   setAlarmBtn.addEventListener('click', () => {
     alarmTime = acHour.value + ':' + acMins.value + ':00'
+    setAlarmBtn.style.backgroundColor = '#1e90ff'
+    setTimeout(() => setAlarmBtn.style.backgroundColor = '#70a1ff', 100)
   })
 }
 
