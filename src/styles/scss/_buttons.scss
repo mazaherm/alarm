@@ -1,0 +1,24 @@
+.dismissAlarm-no-display {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+
+  button {
+    height: 50px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  #timeFormat {
+    margin-bottom: 20px;
+  }
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}

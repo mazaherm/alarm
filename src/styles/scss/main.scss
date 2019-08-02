@@ -1,0 +1,21 @@
+@import './clock';
+@import './buttons';
+@import './alarmSetter';
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500&display=swap');
+
+
+* {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+}
+
+.title {
+  text-align: center;
+}
+
+.main-body {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}

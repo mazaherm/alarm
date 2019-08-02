@@ -26,6 +26,7 @@ const alarmSound = document.getElementById('alarmSound')
   if (alarmTime === currentTime) {
     alarmSound.loop = true
     alarmSound.play()
+    dismissAlarmBtn.style.display = 'block'
   }
 }
 
@@ -45,17 +46,20 @@ setAlarmTime = () => {
 
   setAlarmBtn.addEventListener('click', () => {
     alarmTime = acHour.value + ':' + acMins.value + ':00'
+    setAlarmBtn.style.backgroundColor = '#1e90ff'
+    setTimeout(() => setAlarmBtn.style.backgroundColor = '#70a1ff', 100)
   })
 }
 
 // Dismiss alarm
+const dismissAlarmBtn = document.getElementById('dismissAlarm')
 dismissAlarm = () => {
-  const dismissAlarmBtn = document.getElementById('dismissAlarm')
   dismissAlarmBtn.addEventListener('click', () => {
     if (!alarmSound.paused) {
       alarmSound.pause()
       alarmSound.currentTime = 0
       alarmTime = null
+      dismissAlarmBtn.style.display = 'none'
     }
   })
 }
@@ -63,11 +67,11 @@ dismissAlarm = () => {
 // Set time format
 setFormat = (hour, mins, secs) => {
   if (timeFormat.innerHTML === '12 hr') {
-    clockElement.innerText = hour + ':' + mins + ':' + secs
+    clockElement.innerText = hour + ' : ' + mins + ' : ' + secs
   } else if (timeFormat.innerHTML === '24 hr') {
     let midday = (hour >= 12) ? "PM" : "AM"
     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour)
-    clockElement.innerText = hour + ':' + mins + ':' + secs + ' ' + midday
+    clockElement.innerText = hour + ' : ' + mins + ' : ' + secs + ' ' + midday
   }
 }
 
